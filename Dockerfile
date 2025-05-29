@@ -1,7 +1,7 @@
-FROM maven:3.8.4-openjdk-11-slim AS builder
+FROM quay.io/snowdrop/maven-openjdk11 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-FROM tomcat:8.0
+FROM quay.io/lib/tomcat
 COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
