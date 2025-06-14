@@ -144,7 +144,8 @@
 <body>
     <h1>Happy New Year 2025!</h1>
         <h1>khlifi houcem!</h1>
-        <h1>Gitlab-CI-CD</h1>
+        <h1>Gitlab-CI</h1>
+        <h1>New Modif</h1>
     <div class="balloon"></div>
     <div class="balloon"></div>
     <div class="balloon"></div>
