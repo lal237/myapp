@@ -15,7 +15,7 @@ deploy-job:
   stage: deploy  
   script:
     - echo "Deploying application..."
-    - cp target/myapp-g15.war /opt/tomcat/webapps/
+    - - cp "${CI_PROJECT_DIR}/target/myapp-g15.war" /opt/tomcat/webapps/
     - echo "Application successfully deployed."
   tags:
     - linux
