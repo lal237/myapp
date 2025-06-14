@@ -6,12 +6,14 @@ build:
   stage: build
   script:
     - mvn package
+  tags: 
+      - linux
+
   artifacts:
     paths:
       - target/myapp-g15.war
-  tags: 
-    - linux
-
+     
+   
 deploy:
   stage: deploy
   dependencies:
@@ -19,5 +21,5 @@ deploy:
   script:
     - sudo cp target/myapp-g15.war /opt/tomcat/webapps/
     - sudo systemctl restart tomcat
-   tags: 
+  tags: 
     - linux
