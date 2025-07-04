@@ -26,7 +26,7 @@ deploy:
     - sleep 5  # Délai de sécurité
   script:
     - until [ -f "target/myapp-CICD.war" ]; do sleep 1; done  # Attente active
-    - sudo scp target/myapp-CICD.war apx14@172.16.14.10:/opt/tomcat/webapps/
+    - sudo scp target/myapp-CICD.war root@172.16.14.10:/opt/tomcat/webapps/
     
   tags:
    - Ubuntu
