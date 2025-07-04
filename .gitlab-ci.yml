@@ -9,7 +9,7 @@ build:
   script:
     - mvn clean install package
   tags:
-   - Ubuntu
+   - linux
   artifacts:
     paths:
       - target/myapp-CICD.war
@@ -30,4 +30,4 @@ deploy:
     - sudo scp target/myapp-CICD.war root@172.16.14.10:/opt/tomcat/webapps/
     
   tags:
-   - Ubuntu
+   - linux
