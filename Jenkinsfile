@@ -12,7 +12,7 @@ pipeline {
            steps{
                script{
                    withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-                      sh ' clean install package'
+                      sh ' mvn clean install package'
                           }
                  
                }
