@@ -35,12 +35,12 @@ pipeline {
   post {
       
       success {
-          echo 'Pipeline ${env.JOB_NAME} Réussi!'
+          echo "Pipeline ${env.JOB_NAME} Réussi!"
       }
     
       failure {
           
-          echo 'Echec du Pipeline ${env.JOB_NAME} !'
+          echo "Echec du Pipeline ${env.JOB_NAME} !"
       }
       }  
 }
