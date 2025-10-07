@@ -42,7 +42,7 @@
     </dependencies>
 
     <build>
-        <finalName>myapp-g17-houcem</finalName>
+        <finalName>myapp-g18-houcem</finalName>
         <plugins>
             <!-- WAR Plugin -->
             <plugin>
