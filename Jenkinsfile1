@@ -49,7 +49,7 @@ pipeline {
                          sh '''
                             sed -i "s|{{MAVEN_IMAGE}}|$MAVEN_IMAGE|g" maven.yaml
 
-                            kubectl apply -f deploy.yaml
+                            kubectl apply -f maven.yaml
                             sleep 10 
                             kubectl get all -n houcemapp
 
