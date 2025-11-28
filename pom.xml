@@ -42,7 +42,7 @@
     </dependencies>
 
     <build>
-        <finalName>myapp-g19</finalName>
+        <finalName>myapp-g20</finalName>
         <plugins>
             <!-- WAR Plugin -->
             <plugin>
