@@ -1,0 +1,14 @@
+####StageBuild##########
+
+FROM maven:3.9.11-amazoncorretto-8 as builder 
+
+WORKDIR  /app
+
+COPY . .
+
+RUN mvn clean install package 
+
+#######StageRUN##########
+FROM tomcat:9.0.112-jdk17-corretto-al2
+
+COPY --from-builder /app/target/myapp-g20   /usr/local/tomcat/webapps/
