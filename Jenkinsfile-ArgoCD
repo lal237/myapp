@@ -57,7 +57,7 @@ pipeline {
         stage('trivy image'){
             steps{
 
-                sh "trivy image ${env.MAVEN_IMAGE} > rapportimage.txt"
+                sh "trivy image ${env.MAVEN_IMAGE}:${BUILD_NUMBER} > rapportimage.txt"
             }
         }
         
