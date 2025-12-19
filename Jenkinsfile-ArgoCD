@@ -48,7 +48,8 @@ pipeline {
         stage('Build Image Docker'){
            steps{
                script{
-                 docker.build("${MAVEN_IMAGE}:${BUILD_NUMBER}",'.')
+                 echo '${MAVEN_IMAGE}:${BUILD_NUMBER}'
+                 docker.build('${MAVEN_IMAGE}:${BUILD_NUMBER}','.')
                }  
            }
         }
