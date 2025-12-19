@@ -63,9 +63,11 @@ pipeline {
 
         stage('Docker Push'){
             steps{
+                script{
                 withDockerRegistry(credentialsId: 'id_docker') {
                               docker.image("${env.MAVEN_IMAGE}").push()
                      }
+            }
             }
         }
 
