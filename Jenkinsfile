@@ -9,6 +9,31 @@ pipeline {
                               
             }
         }
+          stage('SonarQube Analysis') {
+                steps {
+                    withSonarQubeEnv('sonar-server') {
+                    sh """
+                        ${SCANNER_HOME}/bin/sonar-scanner \
+                        -Dsonar.projectKey=maven-demo \
+                        -Dsonar.projectName=maven-demo \
+                        -Dsonar.sources=. \
+                        
+                    """
+                    }
+                }
+                                }
+         stage('Quality Gate') {
+                steps {
+                    timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: false
+                    }
+                }
+                }
+
+
+
+
+
        
        stage('Build'){
            steps{
