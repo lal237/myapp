@@ -16,5 +16,5 @@ spec:
       restartPolicy: Always # Always, OnFailure, Never
       containers:
         - name: mymaven
-          image: houcemdevops/maven-argo:20
+          image: houcemdevops/maven-argo:24
           imagePullPolicy: IfNotPresent # Always, IfNotPresent, Never
