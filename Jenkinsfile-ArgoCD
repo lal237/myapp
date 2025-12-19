@@ -73,12 +73,38 @@ pipeline {
         }
 
 
-      /*  stage('Deploy') {
-            steps {
-                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'id_tomcat', path: '', url: 'http://172.16.20.100:8080')],
-                       contextPath: null,
-                       war: '*.war'
+
+
+
+
+
+        stage('Deploy') {
+            environment{
+
+                GIT_REPO_NAME = "myapp-j2e-g20"
+                GIT_USER_NAME = "houcem"
             }
-        }*/
+            steps {
+                dir('k8s'){
+                  withCredentials([string(credentialsId: 'Gitlab', variable: 'gitlab')]) {
+                     sh '''
+                     git config user.name "houcem"
+                     git config user.email "houcem@test.com"
+                     echo "${BUILD_NUMBER}
+                     imageTag=$(grep -oP '?<=houcemdevops/maven-argo:)[^ ]+' deploy.yaml)
+                     echo $imageTag
+                     sed -i "s|houcemdevops/maven-argo:${imageTag}|${env.MAVEN_IMAGE}:${BUILD_NUMBER}|" deploy.yaml
+                     git add deploy.yaml
+                     git commit -m "Update deployment Image to version \${BUILD_NUMBER}"
+                     git push https://${GIT_USER_NAME}:${gitlab}@repo-dev.efi-academy.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
+                     '''
+    
+
+}
+
+                }
+              
+            }
+        }
     }
 }
