@@ -1,4 +1,4 @@
 [deb_serv]
-172.16.22.151
+172.16.22.151 ansible_user =efi
 [centos_serv]
 172.16.22.161
