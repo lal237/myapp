@@ -12,4 +12,3 @@ RUN mvn clean install package
 FROM tomcat:9.0.112-jdk17-corretto-al2
 
 COPY --from=0 /app/target/myapp-g20.war   /usr/local/tomcat/webapps/myapp.war
-
