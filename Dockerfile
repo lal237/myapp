@@ -11,4 +11,4 @@ RUN mvn clean install package
 #######StageRUN##########
 FROM tomcat:9.0.112-jdk17-corretto-al2
 
-COPY --from=0 /app/target/myapp-g22B.war   /usr/local/tomcat/webapps/myapp.war
+COPY --from=0 /app/target/myapp-g22.war   /usr/local/tomcat/webapps/myapp.war
